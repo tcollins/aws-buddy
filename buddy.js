@@ -16,14 +16,14 @@ program._name = 'buddy';
 var desc = [];
 desc.push('AWS Buddy Commands:\n');
 desc.push('\n');
-desc.push('    push-build             :  download remote war & upload to first environment (dev)\n');
-desc.push('    push-local-build       :  upload locally built war to first environment (dev)\n');
-desc.push('    promote                :  copies specified env build to configured promotesTo env.\n');
-desc.push('                              may also archive based on configuration. \n');
-desc.push('                              --env is required, --ver may be required \n');
-desc.push('                              example: buddy promote --env stage --ver 1.16.1\n');
-desc.push('    info-report            :  list the current status of each environment\n');
-desc.push('    view-bucket            :  list the contents of the configured bucket');
+desc.push('    push               :  download remote build & upload to first environment (dev)\n');
+desc.push('    push-local         :  upload local build to first environment (dev)\n');
+desc.push('    promote            :  copies specified env build to configured promotesTo env.\n');
+desc.push('                          may also archive based on configuration. \n');
+desc.push('                          --env is required, --ver may be required \n');
+desc.push('                          example: buddy promote --env stage --ver 1.16.1\n');
+desc.push('    info               :  list the current status of each environment\n');
+desc.push('    bucket             :  list the contents of the configured bucket');
 
 program
   .version(version)
@@ -95,23 +95,24 @@ function catchAndLogError(promise){
     console.log('** ERROR **');
     console.log(err.message);
     console.log(' ');
+    process.exit(1);
   });
 }
 
 switch(cmdValue) {
-    case 'view-bucket':
+    case 'bucket':
         catchAndLogError(util.showBucketUsingPromise(config.bucket));
         break;
-    case 'push-build':
+    case 'push':
         catchAndLogError(service.pushBuild(true));
         break;
-    case 'push-local-build':
+    case 'push-local':
         catchAndLogError(service.pushLocalBuild(true));
         break;
     case 'promote':
         promote();
         break;
-    case 'info-report':
+    case 'info':
         catchAndLogError(service.consoleInfoReport());
         break;
     default:
