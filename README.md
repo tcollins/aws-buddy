@@ -1,6 +1,5 @@
 ## AWS Buddy: A Build Manager for S3
 
-----
 
 ### Install
 
@@ -24,7 +23,7 @@ You will need to edit this file.  Here is an example...
 
     {
         "awsRegion": "us-east-1",
-        "bucket": "BUCKET_NAME",
+        "bucket": "S3_BUCKET_NAME",
         "buildFileName": "MyCoolAppBuild.zip",
         "localBuildFile": "~/dev/MyCoolAppBuild.zip",
         "infoFile": "info.json",
