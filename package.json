@@ -1,9 +1,11 @@
 {
   "name": "aws-buddy",
-  "version": "1.0.0",
-  "description": "AWS Buddy: A Build Manager for S3",
-  "author": "Tim Collins",
+  "version": "1.0.1",
+  "description": "AWS Buddy: A Build Manager backed by an S3 bucket",
+  "author": "Tim Collins <timmyc8m@yahoo.com>",
   "license": "MIT",
+  "keywords": ["build","manager","release","aws","s3"],
+  "preferGlobal": true,
   "main": "buddy.js",
   "bin": {
     "buddy": "./buddy.js"

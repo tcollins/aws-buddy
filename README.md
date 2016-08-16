@@ -1,15 +1,12 @@
-## AWS Buddy: A Build Manager for S3
+## AWS Buddy: A Build Manager backed by an S3 bucket
 
 
 ### Install
 
-Clone this repo and run..
-`npm install -g`
-
-From command line. type.. ``buddy --help``
+``npm install -g aws-buddy``
 
 
-*coming soon*  -> ``npm install -g aws-buddy``
+``buddy --help``
 
 
 ### Config
