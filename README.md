@@ -9,7 +9,7 @@ Clone this repo and run..
 From command line. type.. ``buddy --help``
 
 
-*coming soon*  -> ``npm install aws-buddy``
+*coming soon*  -> ``npm install -g aws-buddy``
 
 
 ### Config
