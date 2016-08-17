@@ -5,6 +5,7 @@
 var config = require('./config');
 var util = require('./lib/util');
 var service = require('./lib/service');
+var con = require('./lib/console');
 var pkginfo = require('pkginfo')(module, 'version');
 var program = require('commander');
 var version = module.exports.version;
@@ -52,7 +53,6 @@ if (typeof cmdValue === 'undefined') {
 function promote(){
 
   var promoteUsage = function(){
-    console.log(' ');
     console.log('  Example:');
     console.log('    buddy promote --env dev');
     console.log('    buddy promote --env stage --ver v1.2.0');
@@ -60,8 +60,8 @@ function promote(){
   };
 
   if(!(program.env)){
-    console.log('');
-    console.log('  You must specify an environment argument');
+    con.blank();
+    con.error('  You must specify an environment argument');
     promoteUsage();
     //program.help();
     return;
@@ -75,12 +75,10 @@ function promote(){
 
   service.promote(env, version, true)
   .then(function(){
-    console.log('Promotion of "'+env+'" has completed successfully');
+    con.success('Promotion of "'+env+'" has completed successfully');
   })
   .catch(function(err){
-    console.log(' ');
-    console.log('** ERROR **');
-    console.log(err.message);
+    con.errorMsg(err);
     promoteUsage();
     //console.log('STACK',err.stack);
   });
@@ -91,13 +89,12 @@ function promote(){
 function catchAndLogError(promise){
   promise
   .catch(function(err){
-    console.log(' ');
-    console.log('** ERROR **');
-    console.log(err.message);
-    console.log(' ');
+    con.errorMsg(err);
     process.exit(1);
   });
 }
+
+
 
 switch(cmdValue) {
     case 'bucket':
@@ -116,10 +113,8 @@ switch(cmdValue) {
         catchAndLogError(service.consoleInfoReport());
         break;
     default:
-        console.log('');
-        console.log('  Invalid command!');
-        console.log('  "' + cmdValue + '" is not a valid command');
-        console.log(' ');
+        con.blank();
+        con.error('  Invalid command!    "' + cmdValue + '" is not a valid command');
         program.help();
         process.exit(1);
 }

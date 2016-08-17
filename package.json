@@ -1,10 +1,16 @@
 {
   "name": "aws-buddy",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "AWS Buddy: A Build Manager backed by an S3 bucket",
   "author": "Tim Collins <timmyc8m@yahoo.com>",
   "license": "MIT",
-  "keywords": ["build","manager","release","aws","s3"],
+  "keywords": [
+    "build",
+    "manager",
+    "release",
+    "aws",
+    "s3"
+  ],
   "preferGlobal": true,
   "main": "buddy.js",
   "bin": {
@@ -20,6 +26,7 @@
   "dependencies": {
     "aws-sdk": "2.5.0",
     "bluebird": "3.4.1",
+    "chalk": "1.1.3",
     "commander": "2.9.0",
     "console.table": "0.7.0",
     "json-stringify": "1.0.0",
