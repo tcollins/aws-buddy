@@ -59,8 +59,8 @@ You will need to edit this file.  Here is an example...
     {
         "awsRegion": "us-east-1",  // AWS S3 region
         "bucket": "S3_BUCKET_NAME", // AWS S3 bucket name
-        "buildFileName": "MyCoolAppBuild.zip", // name the build file will be saved as in S3
-        "localBuildFile": "~/dev/MyCoolAppBuild.zip", // location of the local build file use in push-local cmd
+        "buildFileName": "MyCoolAppBuild.zip", // build file name in S3
+        "localBuildFile": "~/dev/MyCoolAppBuild.zip", // location of the local build file, used in the push-local cmd
         "infoFile": "info.json", // name of the meta file that is written to S3
         "archive": {
             "dir": "build/archive", // archive s3 dir
@@ -68,10 +68,10 @@ You will need to edit this file.  Here is an example...
             "suffix": ".zip"  // archive file name suffix
         },
         "remoteBuild": {
-            "url": "http://buildserver.net/MyCoolAppBuild.zip", // url to remote build, use in push cmd
+            "url": "http://buildserver.net/MyCoolAppBuild.zip", // url to download remote build, used in push cmd
             "user": "me@company.com",  // basic auth user
             "pass": "password-in-clear-fail",  // basic auth pass
-            "localBuildFile": "~/temp/MyCoolAppBuild.zip" // location on local machine to save the build
+            "localBuildFile": "~/temp/MyCoolAppBuild.zip" // location on local machine to save the downloaded build
         },
         // You can add additional environments or edit these.
         "environments": {
