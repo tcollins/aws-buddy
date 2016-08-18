@@ -42,8 +42,8 @@ program
 program.parse(process.argv);
 
 if (typeof cmdValue === 'undefined') {
-   console.log('');
-   console.error('  You must provide a command!');
+   con.blank();
+   con.error('  You must provide a command!');
    program.help();
    process.exit(1);
 }
