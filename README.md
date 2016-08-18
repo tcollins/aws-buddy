@@ -1,12 +1,12 @@
-# AWS Buddy: A Build Manager backed by an S3 bucket
+## AWS Buddy: A Build Manager backed by an S3 bucket
 
 
-## What's AWS Buddy?
+### What's AWS Buddy?
 
 AWS Buddy is a command line tool that helps you use an S3 bucket as a simple build manager.
 
 
-## Usage
+### Usage
 
 ```sh
 # install it (globally)
@@ -19,7 +19,7 @@ $ buddy --help
 $ vi ~/.aws-buddy.json
 ```
 
-## Typical Workflow and S3 Directory Structure
+### Typical Workflow and S3 Directory Structure
 ```
 build
     archive
@@ -32,12 +32,13 @@ build
  1. ``$ buddy info`` display the status of all environments.
  1. ``$ buddy promote --env dev`` copy build from **dev** to **stage**.
  1. ``$ buddy promote --env stage --ver 1.2.0`` copy build from **stage** to **prod** and put a versioned copy in the *archive* directory.
- 1. Configure the deployment script of each environment to pull the build from the corresponding
+ 1. ``$ buddy info`` display the status of all environments.
 
 
- > **It's just a file mover!**  But the thought is that you can setup your deployments to pull from the corresponding environment directory.
+> **It's just a file mover!**  But the thought is that you can setup your deployments to pull from the corresponding environment directory.
 
-## Commands
+
+### Commands
 
   - **push** : download remote build & upload to first environment (dev)
   - **push-local** : upload local build to first environment (dev)
@@ -46,7 +47,7 @@ build
   - **bucket** : list the contents of the configured bucket
 
 
-## Config
+### Config
 
 After first run a config file will be generated into your home dir.  
 
