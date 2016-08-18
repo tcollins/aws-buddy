@@ -28,14 +28,17 @@ build
         stage
         prod
 ```
- 1. ``$ buddy push`` download remote build and upload it to **dev**.
- 1. ``$ buddy info`` display the status of all environments.
- 1. ``$ buddy promote --env dev`` copy build from **dev** to **stage**.
- 1. ``$ buddy promote --env stage --ver 1.2.0`` copy build from **stage** to **prod** and put a versioned copy in the *archive* directory.
- 1. ``$ buddy info`` display the status of all environments.
+ 1. ``buddy push`` download remote build and upload it to **dev**.
+ 1. ``buddy info`` display the status of all environments.
+ 1. ``buddy promote --env dev`` copy build from **dev** to **stage**.
+ 1. ``buddy promote --env stage --ver 1.2.0`` copy build from **stage** to **prod** and put a versioned copy in the *archive* directory.
+ 1. ``buddy info`` display the status of all environments.
 
+
+<br/>
 
 > **It's just a file mover!**  But the thought is that you can setup your deployments to pull from the corresponding environment directory.
+
 
 
 ### Commands
