@@ -102,3 +102,6 @@ You will need to edit this file.  Here is an example...
         }
     }
 ```
+
+
+[![NPM](https://nodei.co/npm/aws-buddy.png?downloads=true)](https://www.npmjs.com/package/aws-buddy)
