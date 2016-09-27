@@ -1,6 +1,6 @@
 {
   "name": "aws-buddy",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "AWS Buddy: A Build Manager backed by an S3 bucket",
   "author": "Tim Collins <timmyc8m@yahoo.com>",
   "license": "MIT",
