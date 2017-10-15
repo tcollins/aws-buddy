@@ -2,7 +2,7 @@
 
 'use strict';
 
-var config = require('./config');
+var configTool = require('./config');
 var util = require('./lib/util');
 var service = require('./lib/service');
 var con = require('./lib/console');
@@ -33,6 +33,7 @@ program
   .description(desc.join(''))
   .option('-e, --env <env>', 'environment to use. dev, stage, etc.')
   .option('-v, --ver <ver>', 'version to use. v1.2.0, etc')
+  .option('-f, --file <config file>', 'alternate config file to use')
   .action(function (cmd) {
      cmdValue = cmd;
   });
@@ -48,7 +49,19 @@ if (typeof cmdValue === 'undefined') {
    process.exit(1);
 }
 
+// load alternate config is specified
+if(program.file){
+  con.info('Using config file: ' + program.file);
+  try{
+    configTool.load(program.file);
+  }catch(err){
+    con.errorMsg(err);
+    con.error('Could not load config file: ' + program.file);
+    process.exit(1);
+  }
+}
 
+var config = configTool.get();
 
 function promote(){
 
