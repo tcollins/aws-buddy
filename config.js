@@ -50,15 +50,38 @@ var defaultConfig = {
   }
 };
 
-// read the config from the user dir, it doesn't exist create it form the defaultConfig
-var homeDir = (process.platform == 'win32'? process.env.USERPROFILE: process.env.HOME);
-var userConfigFile = homeDir + '/.aws-buddy.json';
+var CONFIG;
+var inited = false;
 
-var userConfig = defaultConfig;
-try{
-  userConfig = jsonfile.readFileSync(userConfigFile);
-}catch(err){
-  jsonfile.writeFileSync(userConfigFile, defaultConfig);
+function get(){
+  return CONFIG;
 }
 
-module.exports = userConfig;
+function load(file){
+  CONFIG = jsonfile.readFileSync(file);
+}
+
+function init(){
+  if(!inited){
+    inited = true;
+    // read the config from the user dir, it doesn't exist create it form the defaultConfig
+    var homeDir = (process.platform == 'win32'? process.env.USERPROFILE: process.env.HOME);
+    var userConfigFile = homeDir + '/.aws-buddy.json';
+
+    //var userConfig = defaultConfig;
+    CONFIG = defaultConfig;
+    try{
+      ///userConfig = jsonfile.readFileSync(userConfigFile);
+      load(userConfigFile);
+    }catch(err){
+      jsonfile.writeFileSync(userConfigFile, defaultConfig);
+    }
+  }
+}
+
+init();
+
+module.exports = {
+  get: get,
+  load: load
+};

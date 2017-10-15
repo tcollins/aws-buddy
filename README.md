@@ -32,7 +32,6 @@ build
  1. ``buddy info`` display the status of all environments.
  1. ``buddy promote --env dev`` copy build from **dev** to **stage**.
  1. ``buddy promote --env stage --ver 1.2.0`` copy build from **stage** to **prod** and put a versioned copy in the *archive* directory.
- 1. ``buddy info`` display the status of all environments.
 
 
 <br/>
@@ -56,6 +55,7 @@ After first run a config file will be generated into your home dir.
 
 ``~/.aws-buddy.json``
 
+***Note:*** *You can specify a different config file by using the ``-f, --file`` options. This is useful if you want to use AWS Buddy with multiple different applications.*
 
 You will need to edit this file.  Here is an example...
 ```javascript
