@@ -63,6 +63,10 @@ if(program.file){
 
 var config = configTool.get();
 
+if(config.awsProfile){
+  con.info('Using AWS Profile "' + config.awsProfile + '" for credentials');
+}
+
 function promote(){
 
   var promoteUsage = function(){
