@@ -61,6 +61,7 @@ You will need to edit this file.  Here is an example...
 ```javascript
     {
         "awsRegion": "us-east-1",  // AWS S3 region
+        "awsProfile": "user2"  // AWS Named Profile for alternate credentials - OPTIONAL (you will normally not need this)
         "bucket": "S3_BUCKET_NAME", // AWS S3 bucket name
         "buildFileName": "MyCoolAppBuild.zip", // build file name in S3
         "localBuildFile": "~/dev/MyCoolAppBuild.zip", // location of the local build file, used in the push-local cmd
